@@ -11,7 +11,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['https://immunie-carteirinha.vercel.app', 'localhost:3000', 'https://immunie-api-v6gs.onrender.com'],
   credentials: true
 }));
 
