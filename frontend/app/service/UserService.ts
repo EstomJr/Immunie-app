@@ -5,7 +5,7 @@ import { User } from "../interface";
 export default class UserService {
 
     async getUser(id: number) {
-        return fetch(env.NEXT_PUBLIC_URL + `users/${id}`, {
+        return fetch(env.NEXT_PUBLIC_URL + `api/users/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',}
@@ -17,7 +17,7 @@ export default class UserService {
         formData.append('photo', photo);
         formData.append('name', name);
         try {
-            const response = await fetch(env.NEXT_PUBLIC_URL + `users`, {
+            const response = await fetch(env.NEXT_PUBLIC_URL + `api/users`, {
                 method: 'POST',
                 credentials: 'include',
                 body: formData,
@@ -37,7 +37,7 @@ export default class UserService {
         const formData = new FormData();
         formData.append('photo', file);
         try {
-          const response = await fetch(env.NEXT_PUBLIC_URL + `users/${id}/photo`, {
+          const response = await fetch(env.NEXT_PUBLIC_URL + `api/users/${id}/photo`, {
             method: 'PUT',
             body: formData,
           });
@@ -52,7 +52,7 @@ export default class UserService {
 
       async updateUserName (id: string, name: string) :Promise<User> {
         try {
-          const response = await fetch(env.NEXT_PUBLIC_URL + `users/${id}/name`, {
+          const response = await fetch(env.NEXT_PUBLIC_URL + `api/users/${id}/name`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             credentials: 'include',
