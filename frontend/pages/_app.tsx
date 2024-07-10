@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
           href="/icons/apple-touch-icon.png"
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="shortcut icon" href="/favicon2.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
         <Component {...pageProps} />
     </>
