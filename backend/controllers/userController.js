@@ -8,8 +8,8 @@ const crypto = require ('crypto')
 const client = new S3Client({ 
   region: "us-east-1", 
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY, 
-    secretAccessKey: process.env.AWS_SECRET_KEY
+    accessKeyId: process.env.AWS_KEY_ACESS, 
+    secretAccessKey: process.env.AWS_KEY_SECRET
   } 
 });
 
