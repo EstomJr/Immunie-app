@@ -4,5 +4,5 @@ export interface Env
 }
 
 export const env: Env = {
-    NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL || 'http://localhost:5000/'
+    NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL || 'https://immunie-api-v6gs.onrender.com'
 }
