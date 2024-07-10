@@ -55,32 +55,35 @@ const Home = () => {
   };
 
   return (
-    <div className='h-screen flex flex-col items-center justify-center'>
-      <form onSubmit={handleSubmit} className={`flex flex-col gap-3 ${user ? 'hidden' : ''}`}>
-        <div className='flex flex-col items-center'>
-          <img className={"px-0 py-2 w-[300px]"} src="https://immunie.s3.eu-west-1.amazonaws.com/logo_passe_verde_green_f0ddd7933b.svg" alt="Passe Verde" />
-        </div>
-        <p className='text-lg font-semibold text-black flex flex-col items-center p-4'> Cadastrar novo usuario</p>
-      <input
-        className="text-black border-2 border-gray-400  rounded-full py-2 px-4"
-        type="text"
-        placeholder="Digite seu nome"
-        onChange={(event) => setName(event.target.value)}
-      />
-      <a className='text-black font-semibold flex flex-col items-center'> Selecione uma foto </a>
-      <div className='rounded-full border-2 border-gray-400 py-0 px-2'>
-        <input className=" text-black py-2" ref={imgRef} type="file" onChange={handleFileChange} />
+    <div className="flex justify-center items-center min-h-screen px-4">
+    <div className="w-full max-w-md md:max-w-3xl">
+      <div className="flex flex-col items-center justify-center">
+        <form onSubmit={handleSubmit} className={`flex flex-col gap-3 ${user ? 'hidden' : ''}`}>
+          <div className="flex flex-col items-center">
+            <img className="w-full max-w-xs md:max-w-md py-2" src="https://immunie.s3.eu-west-1.amazonaws.com/logo_passe_verde_green_f0ddd7933b.svg" alt="Passe Verde" />
+          </div>
+          <p className="text-lg font-semibold text-black flex flex-col items-center p-4">Cadastrar novo usuário</p>
+          <input
+            className="text-black border-2 border-gray-400 rounded-full py-2 px-4 w-full"
+            type="text"
+            placeholder="Digite seu nome"
+            onChange={(event) => setName(event.target.value)}
+          />
+          <a className="text-black font-semibold flex flex-col items-center">Selecione uma foto</a>
+          <div className="rounded-full border-2 border-gray-400 py-0 px-2 w-full">
+            <input className="text-black py-2 w-full" ref={imgRef} type="file" onChange={handleFileChange} />
+          </div>
+          <button className="bg-green-600 text-white rounded-full py-3 w-full" type="submit">
+            {isSending ? 'Enviando...' : 'Criar'}
+          </button>
+        </form>
+        {user?.photo && (
+          <Card user={user} handleImageClick={handleImageClick} handleUpdateName={handleUpdateName} />
+        )}
       </div>
-      <button className='bg-green-600 text-white rounded-full py-3' type="submit">
-        {isSending ? 'Enviando...' : 'Criar'}
-      </button>
-    </form>
-      {user?.photo && (
-        <Card user={user} handleImageClick={handleImageClick} handleUpdateName={handleUpdateName} />
-      ) 
-    }
     </div>
-  );
+  </div>
+  );  
 };
 
 export default Home;
